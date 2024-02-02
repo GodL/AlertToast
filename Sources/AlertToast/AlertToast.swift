@@ -428,8 +428,10 @@ public struct AlertToastModifier: ViewModifier{
     private var screen: CGRect {
 #if os(iOS)
         return UIScreen.main.bounds
-#else
+#elseif os(macOS)
         return NSScreen.main?.frame ?? .zero
+#else
+        return .zero
 #endif
     }
     
